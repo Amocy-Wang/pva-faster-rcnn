@@ -194,7 +194,7 @@ def remove_empty_layers(net, model):
 # A function to add 'engine: CAFFE' param into 1x1 convolutions
 def set_engine_caffe(layer, net, model, i):
     if layer.type == 'Convolution':
-        if layer.convolution_param.kernel_size == 1\
+        if layer.convolution_param.kernel_size[0] == 1\
             or (layer.convolution_param.kernel_h == layer.convolution_param.kernel_w == 1):
             layer.convolution_param.engine = dict(layer.convolution_param.Engine.items())['CAFFE']
 
